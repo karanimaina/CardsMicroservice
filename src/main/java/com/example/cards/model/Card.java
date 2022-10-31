@@ -2,10 +2,7 @@ package com.example.cards.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 @Entity
 @AllArgsConstructor
@@ -16,10 +13,11 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private  Long customerId;
+    @Column(unique = true)
     private String cardNo;
     private String cardType;
     private int totalLimit;
-    private int ammountUsed;
-    private int availableAmmount;
+    private int amountUsed;
+    private int availableAmount;
     private Date createdDate;
 }
